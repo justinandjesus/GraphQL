@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="add">
+    HAHAHAH
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script>
+
+        $(function(){
+        
+        function usersByNameQuery() {
+            return '{ allCategories { name, id }  }'
+        }
+
+        var query="{allCategories{name, id}}";
+
+        $.ajax({
+          type: "GET",
+          url: 'http://127.0.0.1:8000/graphql',
+          data: {query: query},
+          success: function(response){
+          if (response.errors) {
+            // console.log(response.data);
+
+          } else {
+            console.log(response.data);
+          }
+
+        }
+        });
+
+        });
+
+    </script>
+</body>
+
+
+</html>
